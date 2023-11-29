@@ -2,7 +2,7 @@ import sys
 from tkinter import * # import Python's standard GUI
 import tkinter.filedialog
 
-# Editor runs with Python3
+# Editor runs with Python3 only
 
 root=Tk("Text Editor")
 
@@ -27,24 +27,19 @@ def changefont(font):
     global text
     text.config(font=font)
 
-# def FontHelvetica():
-#     global text
-#     text.config(font="Helvetica")
-#
-# def FontCourier():
-#     global text
-#     text.config(font="Courier")
-
 font=Menubutton(root, text="Font")
 font.grid()
 font.menu=Menu(font, tearoff=0)
 font["menu"]=font.menu
 Helvetica=IntVar()
 Courier=IntVar()
-# font.menu.add_checkbutton(label="Courier", variable=Courier, command=FontCourier)
-# font.menu.add_checkbutton(label="Helvetica", variable=Helvetica, command=FontHelvetica)
 font.menu.add_checkbutton(label="Courier", variable=Courier, command=lambda :changefont("Courier"))
 font.menu.add_checkbutton(label="Helvetica", variable=Helvetica, command=lambda :changefont("Helvetica"))
+
+# todo colour
+# todo Menüleiste
+# todo font effects
+# todo stuff
 
 root.mainloop()
 
