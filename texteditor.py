@@ -23,17 +23,17 @@ button = Button(root, text="Save", command=saveas)
 button.grid()
 
 # add font changer
-# def changefont(font):
+def changefont(font):
+    global text
+    text.config(font=font)
+
+# def FontHelvetica():
 #     global text
-#     text.config(font=font)
-
-def FontHelvetica():
-    global text
-    text.config(font="Helvetica")
-
-def FontCourier():
-    global text
-    text.config(font="Courier")
+#     text.config(font="Helvetica")
+#
+# def FontCourier():
+#     global text
+#     text.config(font="Courier")
 
 font=Menubutton(root, text="Font")
 font.grid()
@@ -41,8 +41,10 @@ font.menu=Menu(font, tearoff=0)
 font["menu"]=font.menu
 Helvetica=IntVar()
 Courier=IntVar()
-font.menu.add_checkbutton(label="Courier", variable=Courier, command=FontCourier)
-font.menu.add_checkbutton(label="Helvetica", variable=Helvetica, command=FontHelvetica)
+# font.menu.add_checkbutton(label="Courier", variable=Courier, command=FontCourier)
+# font.menu.add_checkbutton(label="Helvetica", variable=Helvetica, command=FontHelvetica)
+font.menu.add_checkbutton(label="Courier", variable=Courier, command=lambda :changefont("Courier"))
+font.menu.add_checkbutton(label="Helvetica", variable=Helvetica, command=lambda :changefont("Helvetica"))
 
 root.mainloop()
 
